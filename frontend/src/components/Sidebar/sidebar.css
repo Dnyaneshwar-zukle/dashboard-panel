@@ -1,0 +1,53 @@
+.tggleButton {
+    right: -13px;
+    height: 30px;
+    width: 30px;
+    background-color: #ff9933;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 0px 5px 5px;
+}
+.tggleButton.absolute.top-0.right-2 svg {
+    height: 17px;
+    width: 17px;
+}
+.pl-288 {
+    left: -288px;
+}
+.pl-74{
+  padding-left: 320px;
+}
+.pl-8{
+    padding-left: 40px;
+}
+.pr-8{
+    padding-right: 40px;
+}
+.white{
+   color:white;
+}
+.search svg {
+    fill: #fff;
+    width: 30px;
+    height: 30px;
+}
+
+/* side bar scroll style */
+.sidebar-scroll::-webkit-scrollbar-track{
+	border-radius: 5px;
+    margin-right: 5px; 
+}
+
+.sidebar-scroll::-webkit-scrollbar{
+	width:4px;
+  
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb{
+	border-radius: 5px;
+    background-color: #F5F5F5;
+}
+.bg-orange-200-cst{
+   background-color: rgb(54,58,81);
+}

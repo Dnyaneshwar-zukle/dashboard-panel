@@ -15,10 +15,11 @@ database.once('connected', () => {
     console.log('Database Connected');
 });
 
+const port = process.env.PORT;
 const app = express();
 app.use(express.json());
-app.listen(3000,()=>{
-    console.log(`Server Started at ${3000}`);
+app.listen(port,()=>{
+    console.log(`Server Started at ${port}`);
 });
 
 app.use("/v1",routes);

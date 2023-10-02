@@ -1,43 +1,25 @@
-import Sidebar from './components/Sidebar'; 
-import Charts from './components/Charts';
-import Search from './components/Search';
-import './css/main.css'
+import { useState } from "react";
+import Sidebar from "./components/Sidebar";
+import Charts from "./components/Charts";
+import Search from "./components/SearchHeader";
+import "./css/main.css";
 function App() {
-  const navs = [
-  {
-    nav:'home',
-    link:'/home',
-    isMulti:false
-   },
-   {
-    nav:'services',
-    link:'/home',
-    isMulti:true,
-    types:[
-      {
-        nav:'home',
-        link:'/home'
-       },
-       {
-        nav:'home',
-        link:'/home'
-       }
-    ]
-   }
-];
+  const [toggles, setToggles] = useState({
+    sideSlide: true,
+  });
   return (
     <>
-      <section>
-        <div className='flex'>
-          <div className='w-72 bg-blue-950 h-full fixed'>
-            <Sidebar navs={navs} />
+      <section className="relative bg-blue-950">
+        <div className="flex">
+          <div className="sidebar">
+            <Sidebar toggle={toggles} setToggle={setToggles} />
           </div>
-          <div className='pl-72'>
-            <Charts />
+          <div className={toggles ? "pl-74 pr-8" : "pl-8 pr-8"}>
             <Search />
+            <Charts />
           </div>
         </div>
-        </section>
+      </section>
     </>
   );
 }
