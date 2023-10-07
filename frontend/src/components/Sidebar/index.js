@@ -161,17 +161,20 @@ const Sidebar = ({ toggle, setToggle }) => {
                             </div>
                           </div>
                           {menuTriger.Invoice ? (
-                            <ul className="list-disc pl-5 mt-4">
-                              <li className="pl-2 mb-2 text-slate-400	">
-                                Dashboard
-                              </li>
-                              <li className="pl-2 mb-2 text-slate-400	">
-                                Dashboard
-                              </li>
-                              <li className="pl-2 mb-2 text-slate-400	">
-                                Dashboard
-                              </li>
-                            </ul>
+                            <>
+                              {item.isMulti && (
+                                <ul className="list-disc pl-5 mt-4 pl-12">
+                                  {item.types.map((subItem, subIndex) => (
+                                    <li
+                                      key={subIndex}
+                                      className="pl-2 mb-2 text-slate-400	"
+                                    >
+                                      <a href={subItem.link}>{subItem.nav}</a>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                            </>
                           ) : null}
                         </>
                       ) : (
@@ -181,7 +184,9 @@ const Sidebar = ({ toggle, setToggle }) => {
                         >
                           <div className="flex items-center gap-2">
                             {item.icon}
-                            <h3 className="text-slate-400">{item.nav}</h3>
+                            <h3 className="text-slate-400">
+                              <a href={item.link}>{item.nav}</a>
+                            </h3>
                           </div>
                         </div>
                       )}
