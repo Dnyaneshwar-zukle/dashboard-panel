@@ -3,7 +3,17 @@ import "../../css/main.css";
 import "../Sidebar/sidebar.css";
 import logo from "../../assets/Mediamodifier-Design.svg";
 import { BsArrowRightSquare, BsArrowLeftSquare } from "react-icons/bs";
-import { FaHome, FaFemale, FaAngleRight, FaAngleBottom } from "react-icons/fa";
+import {
+  FaHome,
+  FaFemale,
+  FaAngleRight,
+  FaAngleBottom,
+  FaRocketchat,
+  FaCalendarAlt,
+  FaFileInvoiceDollar,
+  FaUserAlt,
+  FaAccessibleIcon,
+} from "react-icons/fa";
 
 const Sidebar = ({ toggle, setToggle }) => {
   const navs = [
@@ -15,22 +25,17 @@ const Sidebar = ({ toggle, setToggle }) => {
     {
       nav: "Chat",
       link: "/Chat",
-      icon: <FaFemale />,
+      icon: <FaRocketchat />,
     },
     {
       nav: "Calendar",
       link: "/Calendar",
-      icon: <FaFemale />,
-    },
-    {
-      nav: "Email2",
-      link: "/Email",
-      icon: <FaFemale />,
+      icon: <FaCalendarAlt />,
     },
     {
       nav: "Invoice",
       link: "/Invoice",
-      icon: <FaFemale />,
+      icon: <FaFileInvoiceDollar />,
       isMulti: true,
       types: [
         {
@@ -54,11 +59,12 @@ const Sidebar = ({ toggle, setToggle }) => {
     {
       nav: "User",
       link: "/User",
-      icon: "FaFemale",
+      icon: <FaUserAlt />,
     },
     {
       nav: "Role & Permissions",
       link: "/Role-and-Permissions",
+      icon: <FaAccessibleIcon />,
     },
   ];
   const [menuTriger, setMenutriger] = useState({
@@ -98,7 +104,7 @@ const Sidebar = ({ toggle, setToggle }) => {
                   onClick={() =>
                     setMenutriger({ ...menuTriger, Home: !menuTriger.Home })
                   }
-                  className="cursor-pointer relative pt-1 pb-1 pl-2 pr-2 bg-orange-200-cst rounded-md"
+                  className="cursor-pointer relative pt-1 pb-1 pl-2 pr-2 bg-orange-200-cst rounded-md mb-2"
                 >
                   <div className="flex items-center gap-2 ">
                     <FaHome value={{ color: "#aaaaaa", size: "50px" }} />
@@ -126,7 +132,7 @@ const Sidebar = ({ toggle, setToggle }) => {
                 <h2 className="menu_title text-slate-400 text-xs mt-5 mb-2">
                   Apps and Pages
                 </h2>
-                <div className="cursor-pointer relative pt-1 pb-1 pl-2 pr-2">
+                <div className="cursor-pointer relative pt-1 pb-1 pr-2 mb-2">
                   {navs.map((item, index) => (
                     <div key={index}>
                       {item.isMulti ? (
@@ -138,14 +144,11 @@ const Sidebar = ({ toggle, setToggle }) => {
                                 Invoice: !menuTriger.Invoice,
                               })
                             }
-                            className="cursor-pointer relative pt-1 pb-1 pl-2 pr-2 bg-orange-200-cst rounded-md"
+                            className="cursor-pointer relative pt-1 pb-1 pl-2 pr-2 hover:bg-slate-800 active:bg-slate-800 rounded-md mb-2"
                           >
-                            <div className="flex items-center gap-2 ">
-                              <FaHome
-                                value={{ color: "#aaaaaa", size: "50px" }}
-                              />
+                            <div className="flex items-center gap-2">
                               {item.icon}
-                              <h3>{item.nav}</h3>
+                              <h3 class="text-slate-400">{item.nav}</h3>
                               <div
                                 className={
                                   menuTriger.Invoice
@@ -172,20 +175,13 @@ const Sidebar = ({ toggle, setToggle }) => {
                           ) : null}
                         </>
                       ) : (
-                        <div onClick={() => setMenutriger(!menuTriger)}>
-                          <div className="">
+                        <div
+                          onClick={() => setMenutriger(!menuTriger)}
+                          className="cursor-pointer relative pt-1 pb-1 pr-2 mb-2 pl-2 rounded-md hover:bg-slate-800"
+                        >
+                          <div className="flex items-center gap-2">
                             {item.icon}
-                            <h3>{item.nav}</h3>
-                          </div>
-
-                          <div
-                            className={
-                              menuTriger
-                                ? "absolute right-3 rotate-90 transition-all"
-                                : "absolute right-3 transition-all"
-                            }
-                          >
-                            <FaAngleRight />
+                            <h3 className="text-slate-400">{item.nav}</h3>
                           </div>
                         </div>
                       )}
