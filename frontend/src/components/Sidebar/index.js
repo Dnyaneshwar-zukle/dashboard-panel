@@ -30,7 +30,7 @@ const Sidebar = ({ toggle, setToggle }) => {
     {
       nav: "Invoice",
       link: "/Invoice",
-      icon: "FaFemale",
+      icon: <FaFemale />,
       isMulti: true,
       types: [
         {
@@ -128,31 +128,68 @@ const Sidebar = ({ toggle, setToggle }) => {
                 </h2>
                 <div className="cursor-pointer relative pt-1 pb-1 pl-2 pr-2">
                   {navs.map((item, index) => (
-                    <div
-                    onClick={() => setMenutriger(!menuTriger)}
-                    className="flex items-center gap-2 "
-                  >
-                    {item.icon}
-                    <h3>{item.nav}</h3>
-                    <div
-                      className={
-                        menuTriger
-                          ? "absolute right-3 rotate-90 transition-all"
-                          : "absolute right-3 transition-all"
-                      }
-                    >
-                      <FaAngleRight />
+                    <div key={index}>
+                      {item.isMulti ? (
+                        <>
+                          <div
+                            onClick={() =>
+                              setMenutriger({
+                                ...menuTriger,
+                                Invoice: !menuTriger.Invoice,
+                              })
+                            }
+                            className="cursor-pointer relative pt-1 pb-1 pl-2 pr-2 bg-orange-200-cst rounded-md"
+                          >
+                            <div className="flex items-center gap-2 ">
+                              <FaHome
+                                value={{ color: "#aaaaaa", size: "50px" }}
+                              />
+                              {item.icon}
+                              <h3>{item.nav}</h3>
+                              <div
+                                className={
+                                  menuTriger.Invoice
+                                    ? "absolute right-3 rotate-90 transition-all"
+                                    : "absolute right-3 transition-all"
+                                }
+                              >
+                                <FaAngleRight />
+                              </div>
+                            </div>
+                          </div>
+                          {menuTriger.Invoice ? (
+                            <ul className="list-disc pl-5 mt-4">
+                              <li className="pl-2 mb-2 text-slate-400	">
+                                Dashboard
+                              </li>
+                              <li className="pl-2 mb-2 text-slate-400	">
+                                Dashboard
+                              </li>
+                              <li className="pl-2 mb-2 text-slate-400	">
+                                Dashboard
+                              </li>
+                            </ul>
+                          ) : null}
+                        </>
+                      ) : (
+                        <div onClick={() => setMenutriger(!menuTriger)}>
+                          <div className="">
+                            {item.icon}
+                            <h3>{item.nav}</h3>
+                          </div>
+
+                          <div
+                            className={
+                              menuTriger
+                                ? "absolute right-3 rotate-90 transition-all"
+                                : "absolute right-3 transition-all"
+                            }
+                          >
+                            <FaAngleRight />
+                          </div>
+                        </div>
+                      )}
                     </div>
-                    </div>
-                    if(){
-                      {menuTriger.Invoice ? (
-                        <ul className="list-disc pl-5 mt-4">
-                          <li className="pl-2 mb-2 text-slate-400	">Dashboard</li>
-                          <li className="pl-2 mb-2 text-slate-400	">Dashboard</li>
-                          <li className="pl-2 mb-2 text-slate-400	">Dashboard</li>
-                        </ul>
-                      ) : null}
-                    }
                   ))}
                 </div>
               </div>
