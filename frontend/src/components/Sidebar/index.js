@@ -3,29 +3,34 @@ import "../../css/main.css";
 import "../Sidebar/sidebar.css";
 import logo from "../../assets/Mediamodifier-Design.svg";
 import { BsArrowRightSquare, BsArrowLeftSquare } from "react-icons/bs";
-import { FaHome, FaAngleRight, FaAngleBottom } from "react-icons/fa";
+import { FaHome, FaFemale, FaAngleRight, FaAngleBottom } from "react-icons/fa";
 
 const Sidebar = ({ toggle, setToggle }) => {
   const navs = [
     {
       nav: "Email",
       link: "/Email",
+      icon: <FaHome />,
     },
     {
       nav: "Chat",
       link: "/Chat",
+      icon: <FaFemale />,
     },
     {
       nav: "Calendar",
       link: "/Calendar",
+      icon: <FaFemale />,
     },
     {
-      nav: "Email",
+      nav: "Email2",
       link: "/Email",
+      icon: <FaFemale />,
     },
     {
       nav: "Invoice",
       link: "/Invoice",
+      icon: "FaFemale",
       isMulti: true,
       types: [
         {
@@ -49,13 +54,17 @@ const Sidebar = ({ toggle, setToggle }) => {
     {
       nav: "User",
       link: "/User",
+      icon: "FaFemale",
     },
     {
       nav: "Role & Permissions",
       link: "/Role-and-Permissions",
     },
   ];
-  const [menuTriger, setMenutriger] = useState(false);
+  const [menuTriger, setMenutriger] = useState({
+    Home: false,
+    Invoice: false,
+  });
   console.log("navs", navs);
   return (
     <>
@@ -86,7 +95,9 @@ const Sidebar = ({ toggle, setToggle }) => {
             <div className="">
               <div className="dashboard">
                 <div
-                  onClick={() => setMenutriger(!menuTriger)}
+                  onClick={() =>
+                    setMenutriger({ ...menuTriger, Home: !menuTriger.Home })
+                  }
                   className="cursor-pointer relative pt-1 pb-1 pl-2 pr-2 bg-orange-200-cst rounded-md"
                 >
                   <div className="flex items-center gap-2 ">
@@ -94,7 +105,7 @@ const Sidebar = ({ toggle, setToggle }) => {
                     <h3 className="text-slate-400">Dashboard</h3>
                     <div
                       className={
-                        menuTriger
+                        menuTriger.Home
                           ? "absolute right-3 rotate-90 transition-all"
                           : "absolute right-3 transition-all"
                       }
@@ -103,27 +114,26 @@ const Sidebar = ({ toggle, setToggle }) => {
                     </div>
                   </div>
                 </div>
-                {menuTriger ? (
+                {menuTriger.Home ? (
                   <ul className="list-disc pl-5 mt-4">
                     <li className="pl-2 mb-2 text-slate-400	">Dashboard</li>
                     <li className="pl-2 mb-2 text-slate-400	">Dashboard</li>
                     <li className="pl-2 mb-2 text-slate-400	">Dashboard</li>
                   </ul>
-                ) : (
-                  <span></span>
-                )}
+                ) : null}
               </div>
               <div className="App_and_pages">
                 <h2 className="menu_title text-slate-400 text-xs mt-5 mb-2">
                   Apps and Pages
                 </h2>
-                <div
-                  onClick={() => setMenutriger(!menuTriger)}
-                  className="cursor-pointer relative pt-1 pb-1 pl-2 pr-2"
-                >
-                  <div className="flex items-center gap-2 ">
-                    <FaHome />
-                    <h3>Dashboard</h3>
+                <div className="cursor-pointer relative pt-1 pb-1 pl-2 pr-2">
+                  {navs.map((item, index) => (
+                    <div
+                    onClick={() => setMenutriger(!menuTriger)}
+                    className="flex items-center gap-2 "
+                  >
+                    {item.icon}
+                    <h3>{item.nav}</h3>
                     <div
                       className={
                         menuTriger
@@ -133,7 +143,17 @@ const Sidebar = ({ toggle, setToggle }) => {
                     >
                       <FaAngleRight />
                     </div>
-                  </div>
+                    </div>
+                    if(){
+                      {menuTriger.Invoice ? (
+                        <ul className="list-disc pl-5 mt-4">
+                          <li className="pl-2 mb-2 text-slate-400	">Dashboard</li>
+                          <li className="pl-2 mb-2 text-slate-400	">Dashboard</li>
+                          <li className="pl-2 mb-2 text-slate-400	">Dashboard</li>
+                        </ul>
+                      ) : null}
+                    }
+                  ))}
                 </div>
               </div>
             </div>

@@ -1,0 +1,8 @@
+// const [menuTriger, setMenutriger] = useState({
+//     Home: false,
+//     Invoice: false,
+// });
+
+// setMenutriger({ ...menuTriger, Home:!menuTriger.Home})
+
+// setMenutriger({ ...menuTriger, Invoice:!menuTriger.Invoice})
