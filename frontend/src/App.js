@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Sidebar from "./components/Sidebar";
-import Charts from "./components/Charts";
 import Search from "./components/SearchHeader";
 import "./css/main.css";
+import Charts from "./components/Charts/Charts";
 function App() {
   const [toggles, setToggles] = useState({
     sideSlide: true,
@@ -16,7 +16,9 @@ function App() {
           </div>
           <div className={toggles ? "pl-74 pr-8" : "pl-8 pr-8"}>
             <Search />
-            <Charts />
+            <div className="mt-20">
+              <Charts />
+            </div>
           </div>
         </div>
       </section>

@@ -5,7 +5,6 @@ import logo from "../../assets/Mediamodifier-Design.svg";
 import { BsArrowRightSquare, BsArrowLeftSquare } from "react-icons/bs";
 import {
   FaHome,
-  FaFemale,
   FaAngleRight,
   FaAngleBottom,
   FaRocketchat,
@@ -77,7 +76,7 @@ const Sidebar = ({ toggle, setToggle }) => {
       <div
         className={
           toggle
-            ? "bg-blue-950 h-full fixed	w-72 border-r-2 border-solid border-cyan-50 transition"
+            ? "bg-blue-950 h-full fixed	w-72 border-r-2 border-solid border-cyan-500 transition"
             : "bg-blue-950 h-full fixed pl-288 w-72 sidebar-scroll transition"
         }
       >
@@ -87,7 +86,7 @@ const Sidebar = ({ toggle, setToggle }) => {
               <img className="" src={logo} alt="" />
             </div>
             <div className="flex">
-              <h1 className="text-2xl text-white font-bold	">MERNscape</h1>
+              <h1 className="text-2xl text-slate-400 font-bold	">MERNscape</h1>
             </div>
             <div className="tggleButton absolute top-0 right-2">
               <button onClick={() => setToggle(!toggle)}>
@@ -107,7 +106,7 @@ const Sidebar = ({ toggle, setToggle }) => {
                   className="cursor-pointer relative pt-1 pb-1 pl-2 pr-2 bg-orange-200-cst rounded-md mb-2"
                 >
                   <div className="flex items-center gap-2 ">
-                    <FaHome value={{ color: "#aaaaaa", size: "50px" }} />
+                    <FaHome />
                     <h3 className="text-slate-400">Dashboard</h3>
                     <div
                       className={
