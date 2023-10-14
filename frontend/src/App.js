@@ -1,12 +1,14 @@
-import { useState } from "react";
+import "./css/main.css";
 import Sidebar from "./components/Sidebar";
 import Search from "./components/SearchHeader";
-import "./css/main.css";
 import Charts from "./components/Charts/Charts";
+import React, { useEffect, useState } from "react";
+
 function App() {
   const [toggles, setToggles] = useState({
     sideSlide: true,
   });
+
   return (
     <>
       <section className="relative bg-blue-950">
@@ -14,7 +16,7 @@ function App() {
           <div className="sidebar">
             <Sidebar toggle={toggles} setToggle={setToggles} />
           </div>
-          <div className={toggles ? "pl-74 pr-8" : "pl-8 pr-8"}>
+          <div className={toggles ? "pl-74 pr-8 w-full" : "w-full pl-8 pr-8"}>
             <Search />
             <div className="mt-20">
               <Charts />

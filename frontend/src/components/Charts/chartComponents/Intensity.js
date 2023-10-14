@@ -42,7 +42,7 @@ const Intensity = () => {
   return (
     <div>
       <h2>Bar Chart Example</h2>
-      <Bar data={data} options={options} />
+      <Bar width="100" data={data} options={options} />
     </div>
   );
 };

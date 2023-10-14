@@ -42,7 +42,7 @@ const Country = () => {
   return (
     <div>
       <h2>Bar Chart Example</h2>
-      <Doughnut data={data} options={options} />
+      <Doughnut width="100" data={data} options={options} />
     </div>
   );
 };
